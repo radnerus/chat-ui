@@ -1,0 +1,96 @@
+:root {
+    --screen-color: #DADBD4;
+    --border-color: grey;
+    --border-shadow: rgb(224, 224, 224);
+    --border-radius: 10px;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+    font-family: 'Manrope', sans-serif;
+}
+
+body {
+    background-color: var(--screen-color);
+    display: flex;
+}
+
+.container {
+    margin: auto;
+    height: 95%;
+}
+
+.holder {
+    height: 100%;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: white;
+    color: black;
+    box-shadow: 10px 10px 8px 10px var(--border-shadow);
+}
+
+.wrapper {
+    height: 100%;
+}
+
+
+/* Header */
+
+.header {
+    height: 70px;
+    background-color: aqua;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
+}
+
+.profile-pic {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+.content {
+    overflow: hidden;
+    position: relative;
+}
+
+.user-info,
+.people {
+    height: calc(95% - 70px);
+    border-right: 1px thin var(--border-shadow);
+}
+
+.user-info {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid #ccc;
+    font-weight: 900;
+}
+
+.people {
+    overflow: auto;
+    border-right: 1px solid #ccc;
+}
+
+.person {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+    .container {
+        height: 100%;
+    }
+}
