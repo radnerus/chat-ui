@@ -17,7 +17,7 @@ const loginPage = $('#login-page');
 
 const loginForm = $('#login-form');
 
-const socket = io.connect('http://127.0.0.1:4000');
+const socket = io.connect('https://radnerus-chat.herokuapp.com');
 
 let currentUser = null;
 let currentUserIndex = null;
