@@ -8,33 +8,71 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Manrope&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 </head>
 
-<body onload="loadChats()">
+<body onload="logout()">
 
     <div class="container">
-        <div class="holder">
+        <div id="login-page" class="login-page">
+            <div class="wrapper fadeInDown">
+                <div id="formContent">
+                    <!-- Tabs Titles -->
+
+                    <!-- Icon -->
+                    <div class="fadeIn first">
+                        <img src="./favicon.ico" id="icon" alt="User Icon" />
+                    </div>
+
+                    <!-- Login Form -->
+                    <form id="login-form">
+                        <input type="email" id="email" class="fadeIn second" name="email" placeholder="Email">
+                        <input type="text" id="display_name" class="fadeIn third" name="display_name" placeholder="Display Name">
+                        <input type="submit" class="fadeIn fourth" value="Enter Chat">
+                    </form>
+
+                </div>
+            </div>
+        </div>
+        <div class="chat-page" id="chat-page">
             <div class="row header">
                 <div class="col-md-3 user-info">
-                    <img src="./assets/user.svg" alt="user" class="profile-pic">&nbsp;Surendar Vinayagamoorthy
+                    <img src="./assets/user.svg" alt="user" class="profile-pic">&nbsp;<span id="logged-in-user"></span>&nbsp;<span id="logged-in-email" class="email-header"></span>
                 </div>
-                <div class="col-md-1">new</div>
-                <div class="col-md-8 current-chat-info"></div>
+                <div class="col-md-1 user-info new-message-container">
+                    <!-- <img src="./assets/plus.svg" alt="new message" class="new-message" /> -->
+                </div>
+                <div class="col-md-8 current-chat-info">
+                    <div class="person"><img src="./assets/user.svg" alt="user" class="profile-pic">&nbsp; <span id="current-chat-name"></span> &nbsp;<span class="email-header" id="current-chat-email"></span>
+                    </div>
+                </div>
             </div>
             <div class="row content">
-                <div class="col-md-4 people" id="people"></div>
-                <div class="col-md-8 chat"></div>
+                <div class="col-md-4" id="people"></div>
+                <div class="col-md-8 chat no-gutters" id="chat-panel">
+                    <div class="chat-container" id="chats">
+
+                    </div>
+                    <div class="chat-tray">
+                        <form id="message-form">
+                            <input type="text" id="message" class="message-box">
+                            <img src="./assets/send.svg" id="send" class="send-button" alt="send-button">
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="http://localhost:4000/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.1/dist/jquery.validate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="main.js"></script>
+    <script src="js/main.js"></script>
 
 </body>
 
